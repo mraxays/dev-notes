@@ -1,227 +1,415 @@
-### JavaScript: Comprehensive Notes
+## Comprehensive JavaScript Notes
 
-JavaScript is a versatile, high-level programming language commonly used to create dynamic web pages, handle asynchronous events, and manage client-side data processing. These notes will cover everything from basic syntax to advanced concepts.
+### Table of Contents
+1. [Introduction to JavaScript](#1-introduction-to-javascript)
+2. [JavaScript Basics](#2-javascript-basics)
+3. [Control Structures](#3-control-structures)
+4. [Functions](#4-functions)
+5. [Objects and Arrays](#5-objects-and-arrays)
+6. [ES6 Features](#6-es6-features)
+7. [Asynchronous JavaScript](#7-asynchronous-javascript)
+8. [DOM Manipulation](#8-dom-manipulation)
+9. [Error Handling](#9-error-handling)
+10. [JavaScript Modules](#10-javascript-modules)
+11. [Object-Oriented Programming in JavaScript](#11-object-oriented-programming-in-javascript)
+12. [Miscellaneous Concepts](#12-miscellaneous-concepts)
 
 ---
 
-### 1. **JavaScript Basics**
+### 1. Introduction to JavaScript
+- **Definition**: JavaScript is a high-level, interpreted programming language primarily used for web development to create interactive effects and dynamic content on websites.
+- **History**: Developed by Brendan Eich in 1995, JavaScript has evolved to become a versatile language used on both the client-side and server-side (via Node.js).
+- **Execution**: JavaScript code can be executed in web browsers (like Chrome, Firefox) and on servers (using Node.js).
 
-#### **Variables**
+### 2. JavaScript Basics
+#### Variables
+- **Declaring Variables**:
+  - `var`: Function-scoped, hoisted to the top of its scope, can be redeclared.
+  - `let`: Block-scoped, not hoisted, can be reassigned but not redeclared in the same scope.
+  - `const`: Block-scoped, must be initialized at declaration, cannot be reassigned.
 
-Variables in JavaScript can be declared using `var`, `let`, or `const`. Each has different scoping rules:
-- `var`: Function-scoped and can be redeclared. Avoid using `var` due to potential scoping issues.
-- `let`: Block-scoped and can be updated but not redeclared within the same scope.
-- `const`: Block-scoped but cannot be updated or redeclared.
+  ```javascript
+  var name = "John";  // Function-scoped
+  let age = 30;       // Block-scoped
+  const birthYear = 1990; // Immutable
+  ```
+
+#### Data Types
+- **Primitive Data Types**:
+  - **String**: Text data (e.g., `"Hello, World!"`).
+  - **Number**: Numeric data, can be integers or floats (e.g., `42`, `3.14`).
+  - **Boolean**: Represents `true` or `false`.
+  - **Null**: Represents intentional absence of any value.
+  - **Undefined**: Variable declared but not initialized.
+  - **Symbol**: Unique and immutable primitive value (used mainly for object property keys).
+  - **BigInt**: Represents integers with arbitrary precision (e.g., `1234567890123456789012345678901234567890n`).
+
+- **Composite Data Types**:
+  - **Object**: Collection of key-value pairs (e.g., `{name: "John", age: 30}`).
+  - **Array**: Ordered collection of values (e.g., `[1, 2, 3, 4]`).
+
+#### Operators
+- **Arithmetic Operators**: `+`, `-`, `*`, `/`, `%`, `++`, `--`.
+- **Assignment Operators**: `=`, `+=`, `-=`, `*=`, `/=`, `%=`. 
+- **Comparison Operators**: 
+  - `==` (loose equality), `===` (strict equality), `!=` (loose inequality), `!==` (strict inequality), `>`, `<`, `>=`, `<=`.
+- **Logical Operators**: `&&` (and), `||` (or), `!` (not).
 
 ```javascript
-let name = "Alice";  // Block-scoped, mutable
-const age = 25;      // Block-scoped, immutable
+let sum = 5 + 3;               // 8
+let isEqual = (5 === '5');     // false (strict comparison)
+let isAdult = (age >= 18);     // true if age is 18 or more
 ```
 
-#### **Data Types**
-
-JavaScript has dynamic typing, meaning a variable can hold any type of value.
-
-1. **Primitive Types**:  
-   - `Number`: Integer or floating-point.
-   - `String`: A sequence of characters enclosed in quotes.
-   - `Boolean`: `true` or `false`.
-   - `Undefined`: A variable that has been declared but not yet assigned a value.
-   - `Null`: Represents the intentional absence of a value.
-   - `Symbol`: Unique and immutable primitive used as object property keys.
-   - `BigInt`: Used for representing numbers larger than the `Number` type can safely handle.
-
-2. **Non-Primitive (Reference) Types**:  
-   - **Objects**: Key-value pairs.
-   - **Arrays**: Ordered collections of data.
-   - **Functions**: Blocks of reusable code.
-
-```javascript
-let myNumber = 42;                // Number
-let myString = "Hello, world";     // String
-let isJavaScriptFun = true;        // Boolean
-let myUndefinedVar;                // Undefined
-let myNullVar = null;              // Null
-let mySymbol = Symbol("id");       // Symbol
-let myBigInt = 12345678901234567890n; // BigInt
-```
-
-#### **Operators**
-- **Arithmetic**: `+`, `-`, `*`, `/`, `%`, `++`, `--`.
-- **Comparison**: `==` (loose equality), `===` (strict equality), `!=`, `!==`, `<`, `>`, `<=`, `>=`.
-- **Logical**: `&&` (AND), `||` (OR), `!` (NOT).
-- **Assignment**: `=`, `+=`, `-=`, `*=`, `/=`, `%=`.
+### 3. Control Structures
+#### Conditional Statements
+- **if statement**: Executes a block of code if the condition is true.
   
 ```javascript
-let sum = 5 + 3;         // 8
-let isEqual = 5 === '5'; // false (strict equality)
-```
-
----
-
-### 2. **Control Structures**
-
-#### **Conditionals**: `if`, `else if`, `else`, `switch`
-```javascript
-let score = 85;
-
-if (score > 90) {
-    console.log('A');
-} else if (score > 75) {
-    console.log('B');
+if (age >= 18) {
+    console.log("You are an adult.");
 } else {
-    console.log('C');
-}
-
-// Switch statement
-let grade = 'B';
-
-switch(grade) {
-  case 'A':
-    console.log("Excellent");
-    break;
-  case 'B':
-    console.log("Good");
-    break;
-  default:
-    console.log("Try again");
+    console.log("You are not an adult.");
 }
 ```
 
-#### **Loops**: `for`, `while`, `do...while`, `for...in`, `for...of`
+- **switch statement**: A cleaner way to handle multiple conditions.
+  
+```javascript
+let fruit = "apple";
+
+switch (fruit) {
+    case "banana":
+        console.log("Banana is yellow.");
+        break;
+    case "apple":
+        console.log("Apple is red.");
+        break;
+    default:
+        console.log("Unknown fruit.");
+}
+```
+
+#### Loops
+- **for loop**: Runs a block of code a specific number of times.
+
 ```javascript
 for (let i = 0; i < 5; i++) {
-    console.log(i); // Outputs 0, 1, 2, 3, 4
-}
-
-let arr = [10, 20, 30];
-for (let item of arr) {
-    console.log(item);  // Outputs each item in the array
-}
-
-// While loop
-let i = 0;
-while (i < 5) {
-    console.log(i);
-    i++;
+    console.log(i);  // Outputs 0 to 4
 }
 ```
 
----
+- **while loop**: Continues until the condition is false.
 
-### 3. **Functions**
-
-#### **Function Declaration**
 ```javascript
-function add(a, b) {
-    return a + b;
+let count = 0;
+while (count < 5) {
+    console.log(count);
+    count++;
 }
-console.log(add(2, 3));  // 5
 ```
 
-#### **Function Expression**
+- **do...while loop**: Executes the block at least once, then checks the condition.
+
 ```javascript
-const subtract = function(a, b) {
-    return a - b;
+let number = 0;
+do {
+    console.log(number);
+    number++;
+} while (number < 5);
+```
+
+- **for...of loop**: Iterates over iterable objects (like arrays).
+
+```javascript
+let numbers = [1, 2, 3];
+
+for (let num of numbers) {
+    console.log(num);  // Outputs 1, 2, 3
+}
+```
+
+- **for...in loop**: Iterates over enumerable properties of an object.
+
+```javascript
+let person = {name: "John", age: 30};
+
+for (let key in person) {
+    console.log(key + ": " + person[key]);  // Outputs each key-value pair
+}
+```
+
+### 4. Functions
+#### Function Declaration
+Defines a function that can be called anywhere in the scope.
+
+```javascript
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+console.log(greet("Alice"));  // Outputs: Hello, Alice!
+```
+
+#### Function Expression
+Creates a function that can be assigned to a variable.
+
+```javascript
+const greet = function(name) {
+    return `Hello, ${name}!`;
 };
-console.log(subtract(5, 2));  // 3
+
+console.log(greet("Bob"));  // Outputs: Hello, Bob!
 ```
 
-#### **Arrow Functions**
-Arrow functions provide a shorter syntax and lexically bind the `this` keyword.
+#### Arrow Functions
+A shorter syntax for writing functions, with lexical `this`.
 
 ```javascript
-const multiply = (a, b) => a * b;
-console.log(multiply(2, 3));  // 6
+const greet = (name) => `Hello, ${name}!`;
+console.log(greet("Charlie"));  // Outputs: Hello, Charlie!
 ```
 
-#### **Default Parameters**
+#### Default Parameters
+Sets default values for parameters if not provided.
+
 ```javascript
-function greet(name = 'Guest') {
-    return `Hello, ${name}`;
+function greet(name = "Guest") {
+    return `Hello, ${name}!`;
 }
-console.log(greet());  // "Hello, Guest"
+
+console.log(greet());  // Outputs: Hello, Guest!
 ```
 
-#### **Rest and Spread Operators**
-- **Rest Operator** (`...`): Collects all remaining arguments into an array.
-- **Spread Operator** (`...`): Expands an array or object into its elements.
+#### Higher-Order Functions
+Functions that can take other functions as arguments or return functions.
 
 ```javascript
-// Rest operator
-function sum(...numbers) {
-    return numbers.reduce((acc, curr) => acc + curr, 0);
+function createMultiplier(multiplier) {
+    return function(x) {
+        return x * multiplier;
+    };
 }
-console.log(sum(1, 2, 3, 4));  // 10
 
-// Spread operator
-const arr1 = [1, 2, 3];
-const arr2 = [...arr1, 4, 5];  // [1, 2, 3, 4, 5]
+const double = createMultiplier(2);
+console.log(double(5));  // Outputs: 10
 ```
 
----
-
-### 4. **Objects and Arrays**
-
-#### **Objects**
-Objects are collections of key-value pairs.
+### 5. Objects and Arrays
+#### Objects
+Objects are collections of properties.
 
 ```javascript
 let person = {
-    name: 'John',
+    name: "John",
     age: 30,
-    greet() {
+    greet: function() {
         console.log(`Hello, I am ${this.name}`);
     }
 };
-console.log(person.name);  // Access property
-person.greet();  // Call method
+
+person.greet();  // Outputs: Hello, I am John
 ```
 
-#### **Arrays**
-Arrays are ordered collections of values.
+#### Accessing Object Properties
+- Dot notation: `object.property`
+- Bracket notation: `object["property"]`
 
 ```javascript
-let arr = [10, 20, 30];
-console.log(arr[0]);  // Access first element
-
-// Common array methods
-arr.push(40);        // Adds an element
-arr.pop();           // Removes the last element
-arr.shift();         // Removes the first element
-arr.unshift(5);      // Adds an element to the front
-
-arr.forEach(element => console.log(element));  // Iterates over the array
+console.log(person.name);         // Outputs: John
+console.log(person["age"]);       // Outputs: 30
 ```
 
----
-
-### 5. **ES6 Features**
-
-#### **Template Literals**
-Use backticks for embedding expressions and variables inside strings.
+#### Arrays
+Arrays are list-like objects.
 
 ```javascript
-let name = 'John';
-console.log(`Hello, ${name}!`);  // Outputs: Hello, John!
+let fruits = ["apple", "banana", "cherry"];
+console.log(fruits[0]);  // Outputs: apple
 ```
 
-#### **Destructuring**
-Allows extraction of data from arrays or objects into distinct variables.
+#### Array Methods
+- `push()`: Adds an item to the end of an array.
+- `pop()`: Removes the last item from an array.
+- `shift()`: Removes the first item from an array.
+- `unshift()`: Adds an item to the beginning of an array.
+- `map()`: Creates a new array with the results of calling a function on every element.
+- `filter()`: Creates a new array with elements that pass a test.
 
 ```javascript
-// Array destructuring
-let [x, y] = [10, 20];
-console.log(x, y);  // 10, 20
-
-// Object destructuring
-let person = { name: 'Alice', age: 25 };
-let { name, age } = person;
-console.log(name, age);  // Alice, 25
+fruits.push("date");  // Adds "date" to the end
+let newFruits = fruits.map(fruit => fruit.toUpperCase());  // ["APPLE", "BANANA", "CHERRY", "DATE"]
 ```
 
-#### **Classes**
-Classes are syntactic sugar over JavaScript's prototype-based inheritance model.
+### 6. ES6 Features
+#### Template Literals
+Allow for string interpolation and multi-line strings.
+
+```javascript
+let name = "Alice";
+console.log(`Hello, ${name}!`);  // Outputs: Hello, Alice!
+```
+
+#### Destructuring
+Easily extract values from arrays or properties from objects.
+
+```javascript
+let person = {name: "John", age: 30};
+let {name, age} = person;
+
+let numbers = [1, 2, 3];
+let [first, second] = numbers;
+```
+
+#### Spread Operator
+Expands elements in arrays or properties in objects.
+
+```javascript
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5];  // [1, 2, 3, 4, 5]
+
+let obj1 = {a: 1, b: 2};
+let obj2 = {...obj1, c: 3};
+
+  // {a: 1, b: 2, c: 3}
+```
+
+#### Rest Parameters
+Represents an indefinite number of arguments as an array.
+
+```javascript
+function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3, 4));  // Outputs: 10
+```
+
+### 7. Asynchronous JavaScript
+#### Callbacks
+Functions passed as arguments to be executed later.
+
+```javascript
+function fetchData(callback) {
+    setTimeout(() => {
+        callback("Data loaded");
+    }, 1000);
+}
+
+fetchData(data => console.log(data));  // Outputs: Data loaded after 1 second
+```
+
+#### Promises
+Objects representing the eventual completion (or failure) of an asynchronous operation.
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+    let success = true;
+    if (success) {
+        resolve("Data loaded");
+    } else {
+        reject("Error occurred");
+    }
+});
+
+promise
+    .then(data => console.log(data))  // Outputs: Data loaded
+    .catch(err => console.log(err));
+```
+
+#### Async/Await
+Syntactic sugar built on promises that allows writing asynchronous code in a more synchronous manner.
+
+```javascript
+async function fetchData() {
+    let response = await fetch('https://api.example.com/data');
+    let data = await response.json();
+    console.log(data);
+}
+
+fetchData();  // Calls the async function
+```
+
+### 8. DOM Manipulation
+#### Selecting Elements
+- **By ID**: `document.getElementById()`
+- **By Class**: `document.getElementsByClassName()`
+- **By Tag Name**: `document.getElementsByTagName()`
+- **Using Query Selector**: `document.querySelector()`, `document.querySelectorAll()`
+
+```javascript
+let header = document.getElementById("header");
+let items = document.querySelectorAll(".item");
+```
+
+#### Modifying Content
+- Change text content: `element.textContent`
+- Change HTML content: `element.innerHTML`
+- Change styles: `element.style.property`
+
+```javascript
+header.textContent = "Welcome!";
+header.style.color = "blue";
+```
+
+#### Adding Event Listeners
+Attach events to elements.
+
+```javascript
+header.addEventListener("click", function() {
+    console.log("Header clicked!");
+});
+```
+
+### 9. Error Handling
+Use `try...catch` to handle exceptions.
+
+```javascript
+try {
+    let result = riskyOperation();
+} catch (error) {
+    console.log("Error:", error);
+} finally {
+    console.log("Finally block executed");
+}
+```
+
+### 10. JavaScript Modules
+JavaScript modules allow for organizing code into reusable pieces.
+
+#### Exporting
+- **Named Exports**: Export multiple values from a module.
+
+```javascript
+// module.js
+export const name = "John";
+export function greet() {
+    return "Hello!";
+}
+```
+
+- **Default Exports**: Export a single value from a module.
+
+```javascript
+// module.js
+const name = "John";
+export default name;
+```
+
+#### Importing
+Import values from other modules.
+
+```javascript
+// main.js
+import { name, greet } from './module.js';
+import defaultName from './module.js';
+```
+
+### 11. Object-Oriented Programming in JavaScript
+JavaScript supports object-oriented programming through prototypes and classes.
+
+#### Classes
+- Define classes using the `class` keyword.
 
 ```javascript
 class Person {
@@ -229,187 +417,76 @@ class Person {
         this.name = name;
         this.age = age;
     }
+
     greet() {
         console.log(`Hello, I am ${this.name}`);
     }
 }
-let john = new Person('John', 30);
+
+let john = new Person("John", 30);
 john.greet();  // Outputs: Hello, I am John
 ```
 
-#### **Inheritance**
-Use `extends` to create a subclass.
+#### Inheritance
+Classes can inherit properties and methods from other classes.
 
 ```javascript
 class Employee extends Person {
     constructor(name, age, jobTitle) {
-        super(name, age);  // Call the parent constructor
+        super(name, age);
         this.jobTitle = jobTitle;
     }
+
     work() {
         console.log(`${this.name} is working as a ${this.jobTitle}`);
     }
 }
-let emp = new Employee('Jane', 28, 'Developer');
+
+let emp = new Employee("Jane", 28, "Developer");
 emp.work();  // Outputs: Jane is working as a Developer
 ```
 
----
+### 12. Miscellaneous Concepts
+#### Scope
+- **Global Scope**: Variables declared outside functions are globally accessible.
+- **Function Scope**: Variables declared within a function are only accessible inside that function.
+- **Block Scope**: Variables declared with `let` and `const` are only accessible within the block they are defined.
 
-### 6. **Asynchronous JavaScript**
-
-#### **Callbacks**
-A callback is a function passed as an argument to another function.
-
-```javascript
-function fetchData(callback) {
-    setTimeout(() => {
-        callback('Data loaded');
-    }, 1000);
-}
-fetchData(data => console.log(data));  // Outputs: Data loaded (after 1 second)
-```
-
-#### **Promises**
-A `Promise` is an object that represents a value which may be available now, later, or never.
+#### `this` Keyword
+Refers to the context in which a function is executed.
+- In a method, `this` refers to the owner object.
+- In a function, `this` refers to the global object (or `undefined` in strict mode).
+- In an arrow function, `this` is lexically inherited from the outer function.
 
 ```javascript
-const promise = new Promise((resolve, reject) => {
-    let success = true;
-    if (success) {
-        resolve('Data loaded');
-    } else {
-        reject('Error occurred');
+let person = {
+    name: "John",
+    greet: function() {
+        console.log(`Hello, I am ${this.name}`);
     }
-});
+};
 
-promise
-  .then(data => console.log(data))    // If resolved: Outputs 'Data loaded'
-  .catch(err => console.log(err));    // If rejected: Outputs 'Error occurred'
+person.greet();  // Outputs: Hello, I am John
 ```
 
-#### **Async/Await**
-Async/await provides a cleaner way to handle asynchronous operations.
+#### Higher-Order Functions
+Functions that can take other functions as arguments or return them.
 
 ```javascript
-async function fetchData() {
-    let result = await fetch('https://api.example.com');
-    let data = await result.json();
-    console.log(data);
+function filterArray(arr, callback) {
+    let filtered = [];
+    for (let item of arr) {
+        if (callback(item)) {
+            filtered.push(item);
+        }
+    }
+    return filtered;
 }
-fetchData();
+
+let result = filterArray([1, 2, 3, 4], item => item > 2);
+console.log(result);  // Outputs: [3, 4]
 ```
 
 ---
 
-### 7. **Error Handling**
-
-Use `try`, `catch`, and `finally` to handle errors.
-
-```javascript
-try {
-    let result = riskyOperation();
-} catch (error) {
-    console.log('Error:', error);
-} finally {
-    console.log('Cleanup code runs here');
-}
-```
-
----
-
-### 8. **DOM Manipulation**
-
-
-
-JavaScript can interact with and modify the HTML structure of a webpage using the DOM (Document Object Model).
-
-#### **Selecting Elements**
-```javascript
-let element = document.getElementById('myElement');
-let elements = document.querySelectorAll('.myClass');
-```
-
-#### **Modifying Elements**
-```javascript
-element.textContent = 'New Content';  // Change text
-element.style.color = 'blue';         // Change CSS style
-```
-
-#### **Event Listeners**
-```javascript
-element.addEventListener('click', function() {
-    console.log('Element clicked');
-});
-```
-
----
-
-### 9. **Modules (ES6)**
-
-JavaScript modules allow you to divide your code into multiple files for better organization.
-
-- **Export**: Share code from a module.
-  ```javascript
-  export const name = 'John';
-  export function greet() {
-      return 'Hello';
-  }
-  ```
-
-- **Import**: Import code from a module.
-  ```javascript
-  import { name, greet } from './module.js';
-  ```
-
----
-
-### 10. **Miscellaneous Concepts**
-
-#### **Truthy and Falsy Values**
-In JavaScript, certain values are inherently "truthy" or "falsy".
-
-- **Falsy**: `false`, `0`, `''` (empty string), `null`, `undefined`, `NaN`.
-- **Truthy**: Anything that is not falsy.
-
-```javascript
-if (0) {
-    console.log('This will not run'); // 0 is falsy
-}
-```
-
-#### **Short-Circuit Evaluation**
-JavaScript uses short-circuit evaluation with logical operators (`&&`, `||`).
-
-```javascript
-let name = userName || 'Guest';  // If userName is falsy, 'Guest' will be used
-```
-
-#### **Strict Mode**
-JavaScript's "strict mode" enforces stricter parsing and error handling in your code.
-
-```javascript
-'use strict';
-```
-
----
-
-### 11. **Higher-Order Functions**
-
-JavaScript allows the use of higher-order functions — functions that take other functions as arguments or return functions.
-
-#### **Example: `map`, `filter`, `reduce`**
-
-```javascript
-let numbers = [1, 2, 3, 4, 5];
-
-// map: applies a function to each element
-let squares = numbers.map(x => x * 2);  // [2, 4, 6, 8, 10]
-
-// filter: filters elements based on a condition
-let even = numbers.filter(x => x % 2 === 0);  // [2, 4]
-
-// reduce: reduces an array to a single value
-let sum = numbers.reduce((acc, curr) => acc + curr, 0);  // 15
-```
-
+### Happy coding!
