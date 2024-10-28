@@ -13,6 +13,7 @@
 9. [Comments](#9-comments)
 10. [Doctype Declaration](#10-doctype-declaration)
 11. [Best Practices](#11-best-practices)
+12. [References](#12-references)
 
 ---
 
@@ -347,6 +348,16 @@ Useful for detailed explanations.
 - **Responsive Design**: Keep responsive design in mind by using the viewport meta tag and CSS media queries to ensure that your site works well on different devices.
 
 - **Accessibility**: Ensure your HTML is accessible by using semantic elements and proper attributes (like `alt` for images). Test your website with screen readers to ensure usability for all users.
+
+### 12. References
+
+**W3Schools**: A comprehensive resource for learning web technologies, including HTML, CSS, and JavaScript. They provide tutorials, examples, and interactive coding environments.
+   - Website: [W3Schools HTML Tutorial](https://www.w3schools.com/html/)
+
+**MDN Web Docs (Mozilla Developer Network)**: A highly regarded resource for web developers. MDN offers extensive documentation on HTML, CSS, JavaScript, and other web technologies, with detailed explanations and examples.
+   - Website: [MDN Web Docs HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+
+
 
 ---
 
