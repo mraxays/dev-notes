@@ -13,7 +13,7 @@
 9. [Responsive Design](#9-responsive-design)
 10. [CSS Units](#10-css-units)
 11. [Transitions and Animations](#11-transitions-and-animations)
-12. [Best Practices](#12-best-practices)
+12. [References](#12-references)
 
 ---
 
@@ -677,6 +677,17 @@ Animations allow you to create keyframe animations, enabling complex sequences o
     animation: fadeIn 2s infinite alternate; /* Loops the animation infinitely */
 }
 ```
+---
+### 12. References
+
+1. **W3Schools**: A beginner-friendly site offering CSS tutorials with examples and exercises. Covers fundamental and advanced CSS topics.
+   - Website: [W3Schools CSS Tutorial](https://www.w3schools.com/css/)
+
+2. **MDN Web Docs (Mozilla Developer Network)**: A highly regarded resource for web developers, offering extensive documentation on CSS properties, selectors, and best practices.
+   - Website: [MDN Web Docs CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+3. **CSS-Tricks**: A popular website with articles, tutorials, and a "complete guide" series that covers everything from Flexbox to Grid Layout.
+   - Website: [CSS-Tricks](https://css-tricks.com/)
 
 ---
 
