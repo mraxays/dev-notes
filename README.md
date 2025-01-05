@@ -10,15 +10,15 @@ Welcome to **Dev Notes**, the ultimate collection of notes, resources, and tutor
 
 ## 🚀 Table of Contents 📖
 
-- [HTML](#html)
-- [CSS](#css)
-- [JavaScript](#javascript)
-- [Bootstrap](#bootstrap)
-- [Tailwind](#tailwind)
-- [Dart](#dart)
-- [Other Languages & Technologies](#other-languages-technologies)
-- [Contributing](#contributing)
-- [License](#license)
+- [HTML](#-html)
+- [CSS](#-css)
+- [JavaScript](#-javascript)
+- [Bootstrap](#-bootstrap)
+- [Tailwind](#-tailwind)
+- [Dart](#-dart)
+- [Other Languages & Technologies](#-other-languages--technologies)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
