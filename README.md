@@ -74,7 +74,7 @@ Build high-performance mobile apps with Dart, the language behind Flutter! Learn
 
 This repository is not limited to just a few languages. Explore notes on various other languages and frameworks, and contribute your own!
 
-[Contribute your notes](https://github.com/MrAkshayAS/dev-notes)
+[Contribute your notes](https://github.com/mraxays/dev-notes)
 
 ---
 
