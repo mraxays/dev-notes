@@ -1,4 +1,5 @@
 
+
 ![Build Status](https://img.shields.io/badge/Build-Passing-ff932e)
 ![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-ff7a5e)
 ![License](https://img.shields.io/badge/License-MIT-blue)
@@ -16,6 +17,7 @@ Welcome to **Dev Notes**, the ultimate collection of notes, resources, and tutor
 - [Bootstrap](#-bootstrap)
 - [Tailwind](#-tailwind)
 - [Dart](#-dart)
+- [PostgreSQL](#-postgresql)
 - [Other Languages & Technologies](#-other-languages--technologies)
 - [Contributing](#-contributing)
 - [License](#-license)
@@ -70,6 +72,14 @@ Build high-performance mobile apps with Dart, the language behind Flutter! Learn
 
 ---
 
+## 🐘 PostgreSQL
+
+Learn how to manage relational databases with PostgreSQL! From basic queries to advanced database design, this section has you covered.
+
+[Read PostgreSQL Notes](PostgreSQL.md)
+
+---
+
 ## 🌐 Other Languages & Technologies
 
 This repository is not limited to just a few languages. Explore notes on various other languages and frameworks, and contribute your own!
@@ -106,4 +116,3 @@ Your contributions matter! 🌱 Let's continue building and learning together. O
 ### 🎉 Happy Coding! Stay Curious, Keep Innovating! 🚀
 
 ---
-
